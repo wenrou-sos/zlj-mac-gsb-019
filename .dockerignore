@@ -1,0 +1,11 @@
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+.venv
+backend/shipyard_dev.db
+frontend/node_modules
+frontend/dist
+backend/static
+.git
+*.md
+.env

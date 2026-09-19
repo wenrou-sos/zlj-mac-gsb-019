@@ -1,0 +1,387 @@
+/* 船舶维修坞期管理平台 - 样式 */
+:root {
+  --bg: #f0f3f7;
+  --panel: #ffffff;
+  --border: #d9e0ea;
+  --primary: #1a5fae;
+  --primary-dark: #134a88;
+  --danger: #c0392b;
+  --warn: #d68910;
+  --ok: #1e8449;
+  --muted: #6b7785;
+  --blocked-bg: #fdecea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: #1f2a37;
+  font-size: 14px;
+}
+
+header.topbar {
+  background: linear-gradient(100deg, #0e3a66, var(--primary));
+  color: #fff;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+header.topbar h1 {
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+header.topbar .anchor {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+nav.tabs {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
+
+nav.tabs button {
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #eaf2fb;
+  padding: 8px 16px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+nav.tabs button.active {
+  background: var(--bg);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+main {
+  padding: 20px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 16px;
+  color: var(--primary-dark);
+  border-left: 4px solid var(--primary);
+  padding-left: 10px;
+}
+
+.panel h3 {
+  font-size: 14px;
+  margin: 16px 0 8px;
+  color: #334155;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+
+.card .num {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.card .num.danger {
+  color: var(--danger);
+}
+
+.card .num.warn {
+  color: var(--warn);
+}
+
+.card .label {
+  color: var(--muted);
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--border);
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #f4f7fb;
+  color: #334155;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+tr.blocked-row {
+  background: var(--blocked-bg);
+}
+
+tr.done-row {
+  opacity: 0.55;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.badge.pending {
+  background: #e5eaf0;
+  color: #475569;
+}
+
+.badge.in_progress {
+  background: #fef3d7;
+  color: #9a6700;
+}
+
+.badge.blocked {
+  background: #fbded9;
+  color: var(--danger);
+}
+
+.badge.done {
+  background: #d8f0e0;
+  color: var(--ok);
+}
+
+.badge.planned {
+  background: #e3edfb;
+  color: var(--primary);
+}
+
+.badge.completed {
+  background: #d8f0e0;
+  color: var(--ok);
+}
+
+.badge.delayed {
+  background: #fbded9;
+  color: var(--danger);
+}
+
+.blocker-text {
+  color: var(--danger);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+button {
+  font-family: inherit;
+}
+
+.btn {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 6px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+.btn.ghost {
+  background: #fff;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.btn.danger {
+  background: #fff;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.btn.small {
+  padding: 3px 9px;
+  font-size: 12px;
+}
+
+input,
+select {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #fff;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-row label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.progress {
+  background: #e5eaf0;
+  border-radius: 8px;
+  height: 8px;
+  width: 90px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+}
+
+.logs {
+  max-height: 340px;
+  overflow-y: auto;
+  font-size: 13px;
+}
+
+.log-line {
+  padding: 6px 4px;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  gap: 10px;
+}
+
+.log-line .time {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.log-line.adjustment {
+  color: var(--warn);
+}
+
+.log-line.warning {
+  color: var(--danger);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.tag {
+  display: inline-block;
+  background: #eef3f9;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 7px;
+  margin: 1px 3px 1px 0;
+  font-size: 12px;
+}
+
+.gantt {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.gantt-track {
+  display: grid;
+  align-items: center;
+  margin-bottom: 6px;
+  gap: 8px;
+}
+
+.gantt-label {
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.gantt-bar {
+  height: 20px;
+  border-radius: 4px;
+  position: relative;
+  min-width: 2px;
+}
+
+.gantt-bar.pending {
+  background: #9db8d6;
+}
+
+.gantt-bar.in_progress {
+  background: #e8b73f;
+}
+
+.gantt-bar.blocked {
+  background: var(--danger);
+}
+
+.gantt-bar.done {
+  background: var(--ok);
+}
+
+.gantt-bar .dates {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  font-size: 11px;
+  color: #fff;
+  white-space: nowrap;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.empty {
+  color: var(--muted);
+  padding: 16px;
+  text-align: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}

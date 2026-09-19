@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: shipyard-db
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-shipyard}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-shipyard}
+      POSTGRES_DB: ${POSTGRES_DB:-shipyard}
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-shipyard}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shipyard-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg2://${POSTGRES_USER:-shipyard}:${POSTGRES_PASSWORD:-shipyard}@db:5432/${POSTGRES_DB:-shipyard}
+      CORS_ORIGINS: "*"
+      # 1 = load demo data on first startup
+      SEED_ON_STARTUP: "${SEED_ON_STARTUP:-1}"
+    ports:
+      - "${API_PORT:-8000}:8000"
+
+volumes:
+  pgdata:
